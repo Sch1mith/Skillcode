@@ -48,7 +48,7 @@ export default function Usuario({ user, onBack }: UsuarioProps) {
       <header className="bg-black bg-opacity-50 backdrop-blur-sm border-b border-[#00FFFF]">
         <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
           <button onClick={onBack} className="text-[#00FFFF] font-bold">Voltar</button>
-          <img src="../../homepage/teladeusuário/logotipo.png" alt="Logo SkillCode" className="logo" width={120} />
+          <img src="../../homepage/logotipo.png" alt="Logo SkillCode" className="logo" width={120} />
         </div>
       </header>
       <div className="flex flex-1 max-w-7xl mx-auto w-full p-6 gap-8">
