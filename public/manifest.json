@@ -1,0 +1,23 @@
+{
+    "name": "Skillcode",
+    "short_name": "WebApp",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0d47a1",
+    "description": "Um exemplo de Progressive Web App",
+    "icons": [
+    {
+      "src": "/icons/skillcode-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/skillcode-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+    "orientation": "portrait",
+    "lang": "pt-BR"
+  }
