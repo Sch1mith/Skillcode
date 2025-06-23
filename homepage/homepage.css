@@ -1,0 +1,405 @@
+
+:root {
+    --primary-color: #00ffff;
+    --secondary-color: #8000ff;
+    --bg-gradient: linear-gradient(135deg, #080349, #2408c2);
+    --table-bg: linear-gradient(135deg, #1a0033, #290066);
+    --btn-glow: rgba(96, 199, 255, 0.8);
+    --text-color: #ffffff;
+    --table-border: 2px solid var(--primary-color);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+   background-color: #070707;
+       background-image: url(fundo.gifSS);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: grid;
+
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.712);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 40px 40px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* main{
+    
+} */
+
+body.scrolled header {
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.457);
+    box-shadow: 0 2px 20px rgba(0, 255, 255, 0.3);
+}
+/* 
+.navbar-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+} */
+
+.logo {
+    display: flex;
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 0 30px var(--btn-glow));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.botaoentrar {
+    display: flex;
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Bungee", sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.botaoentrar:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(255, 0, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.botao-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;   
+    gap: 60px;              
+    margin-top: 30px;      
+  }
+
+.container {
+    padding: 30px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+h1, h2 {
+    font-family: "Bungee", sans-serif;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.sobre-box {
+    width: 90%;
+    margin: 0 auto 30px;
+    color: #ffffff;
+    border: 2px solid #00ffffac;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 30px #00ffff3d, 0 0 60px #8000ff44 inset;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.sobre-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    /* background: linear-gradient(30deg, 
+        rgba(0, 255, 255, 0.217), 
+        rgba(0, 255, 0, 0.242), 
+        rgba(0, 255, 255, 0.235)); */
+    background-size: 400%;
+    z-index: -1;
+    border-radius: 18px;
+    opacity: 0.4;
+    animation: borderGlow 8s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.sobre-box p {
+    margin: 0 0 20px 0;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+    font-size: 1em;
+}
+
+.sobre-box p:last-child {
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff;
+    font-size: 1.2em;
+    margin-top: 15px;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 15px #00ffff; }
+    50% { text-shadow: 0 0 25px #00ffff, 0 0 10px #ffffff; }
+    100% { text-shadow: 0 0 15px #00ffff; }
+}
+
+footer {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.877);
+    text-align: center;
+    font-size: 0.9em;
+    grid-row: 3;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-size: 1.2em;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer-section a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.legendary-btn {
+    top: 40px;
+    font-family: "Bungee", sans-serif;
+    position: relative;
+    padding: 18px 36px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #1a0033, #290066);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.7),
+        rgba(255, 0, 255, 0.7),
+        rgba(0, 255, 255, 0.7)
+    );
+    background-size: 200% 200%;
+    opacity: 0.5;
+    z-index: 1;
+    animation: gradientGlow 3s linear infinite;
+    border-radius: 50%;
+    filter: blur(20px);
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.8) 1px,
+        transparent 1px
+    );
+    background-size: 10px 10px;
+    z-index: 0;
+    opacity: 0.3;
+    animation: particleMove 10s linear infinite;
+}
+/* 
+.card {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+   
+   .card2 {
+    width: 190px;
+    height: 254px;
+    background-color: #1a1a1a;
+    border-radius:;
+    transition: all .2s;
+   }
+   
+   .card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+   }
+   
+   .card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+   } */
+
+@keyframes gradientGlow {
+    0% {
+        transform: rotate(0deg);
+        background-position: 0% 50%;
+    }
+    100% {
+        transform: rotate(360deg);
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes particleMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+.legendary-btn:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8),
+                0 0 60px rgba(255, 0, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.legendary-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1),
+                0 0 40px rgba(255, 0, 255, 0.8);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .botoes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .sobre-box {
+        width: 95%;
+        padding: 20px;
+        font-size: 1em;
+    }
+
+    .sobre-box p:last-child {
+        font-size: 1.1em;
+    }
+
+    .ranking-box {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .ranking-table {
+        font-size: 14px;
+    }
+
+    .legendary-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ranking-table th, 
+    .ranking-table td {
+        padding: 8px 10px;
+    }
+
+    .sobre-box {
+        padding: 15px;
+    }
+
+    .footer-section {
+        font-size: 0.8em;
+    }
+}

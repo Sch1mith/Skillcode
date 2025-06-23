@@ -1,0 +1,76 @@
+import React, { useState } from 'react';
+
+const CreateAccount: React.FC<{ onAccountCreated?: (user: any) => void; onBack?: () => void }> = ({ onAccountCreated, onBack }) => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [login, setLogin] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
+    if (senha !== confirmarSenha) {
+      setError('As senhas não coincidem.');
+      return;
+    }
+    try {
+      const res = await fetch('/api/usuarios/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, login, senha })
+      });
+      if (res.ok) {
+        setSuccess('Conta criada com sucesso!');
+        if (onAccountCreated) {
+          const user = await res.json().catch(() => ({}));
+          onAccountCreated(user);
+        }
+      } else {
+        setError('Erro ao criar conta.');
+      }
+    } catch {
+      setError('Erro ao conectar ao servidor.');
+    }
+  };
+
+  return (
+    <div className="min-h-screen grid-background flex items-center justify-center">
+      <div className="login-box" style={{ color: '#111' }}>
+        {onBack && (
+          <button onClick={onBack} style={{ marginBottom: 16, color: '#00FFFF', fontWeight: 'bold', background: 'none', border: 'none', cursor: 'pointer' }}>Voltar</button>
+        )}
+        <h2 className="neon-text" style={{ textAlign: 'center', fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#111' }}>Criar Conta</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          <input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} required className="login-input" />
+          <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="login-input" />
+          <input type="text" placeholder="Login" value={login} onChange={e => setLogin(e.target.value)} required className="login-input" />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            onChange={e => setSenha(e.target.value)}
+            required
+            className="login-input"
+          />
+          <input
+            type="password"
+            placeholder="Confirmar Senha"
+            value={confirmarSenha}
+            onChange={e => setConfirmarSenha(e.target.value)}
+            required
+            className="login-input"
+          />
+          <button type="submit" className="login-btn">Criar Conta</button>
+        </form>
+        {error && <div className="login-error">{error}</div>}
+        {success && <div style={{ color: '#39FF14', marginTop: 16, textAlign: 'center' }}>{success}</div>}
+      </div>
+    </div>
+  );
+};
+
+export default CreateAccount;

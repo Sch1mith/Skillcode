@@ -1,0 +1,5 @@
+projeto\tcc\skillcode\repository\UsuarioRepository.class
+projeto\tcc\skillcode\SkillcodeSpringBootApplication.class
+projeto\tcc\skillcode\model\Usuario.class
+projeto\tcc\skillcode\controller\UsuarioController.class
+projeto\tcc\skillcode\SecurityConfig.class
