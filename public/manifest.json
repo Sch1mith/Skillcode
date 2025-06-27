@@ -1,6 +1,6 @@
 {
     "name": "Skillcode",
-    "short_name": "WebApp",
+    "short_name": "Skillcode",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
